@@ -9,12 +9,15 @@ app.use(cors());
 app.use(express.json());
 
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "safin@sql93611",
-    database: "cinema_football_blog"
+    host: "cinema-football-db-cinema-football-blog.g.aivencloud.com",
+    user: "avnadmin",
+    password: process.env.DB_PASSWORD,
+    database: "defaultdb",
+    port: 17884,
+    ssl: {
+        rejectUnauthorized: false
+    }
 });
-
 db.connect((err) => {
     if (err) {
         console.log("Database connection failed:", err.message);
