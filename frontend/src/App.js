@@ -7,10 +7,12 @@ import Post from "./pages/Post";
 import About from "./pages/About";
 import AdminLogin from "./pages/AdminLogin";
 import AdminDashboard from "./pages/AdminDashboard";
+import { Analytics } from "@vercel/analytics/react";
 
 function App() {
     return (
         <>
+            <Analytics />
             <Navbar />
 
             <Routes>
