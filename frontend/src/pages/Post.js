@@ -1,33 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
-import api from "../api";
+import postsData from "./posts";
 
 function Post() {
     const { id } = useParams();
-    const [post, setPost] = useState(null);
-    const [error, setError] = useState("");
 
-    useEffect(() => {
-        api.get(`/posts/${id}`)
-            .then((res) => setPost(res.data))
-            .catch(() => setError("Article not found."));
-    }, [id]);
+    const post = postsData.find(
+        (post) => post.id.toString() === id
+    );
 
-    if (error) return <main className="container"><h1>{error}</h1></main>;
-    if (!post) return <main className="container"><p>Loading...</p></main>;
+    if (!post) {
+        return (
+            <main className="container">
+                <h1>Article not found.</h1>
+            </main>
+        );
+    }
 
     return (
         <main className="article-page">
             <div className="article-header">
                 <span className="category-tag">{post.category}</span>
+
                 <h1>{post.title}</h1>
+
                 <p className="article-meta">
-                    By {post.author} • {new Date(post.created_at).toLocaleDateString()}
+                    By {post.author} •{" "}
+                    {new Date(post.created_at).toLocaleDateString()}
                 </p>
             </div>
 
             {post.image && (
-                <img src={post.image} alt={post.title} className="article-image" />
+                <img
+                    src={post.image}
+                    alt={post.title}
+                    className="article-image"
+                />
             )}
 
             <div className="article-content">

@@ -1,17 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import api from "../api";
 import PostCard from "../components/PostCard";
+import postsData from "./posts";
 
 function Home() {
-    const [posts, setPosts] = useState([]);
+    const [posts] = useState(postsData);
     const [search, setSearch] = useState("");
-
-    useEffect(() => {
-        api.get("/posts")
-            .then((res) => setPosts(res.data))
-            .catch(() => {});
-    }, []);
 
     const filtered = posts.filter((post) =>
         post.title.toLowerCase().includes(search.toLowerCase())
@@ -22,7 +16,12 @@ function Home() {
             <section className="hero">
                 <div>
                     <p className="eyebrow">CINEMA • FOOTBALL • STORIES</p>
-                    <h1>What we watch.<br />What we love.</h1>
+
+                    <h1>
+                        What we watch.<br />
+                        What we love.
+                    </h1>
+
                     <p>
                         Daily stories, opinions and news from the world of cinema
                         and football.
