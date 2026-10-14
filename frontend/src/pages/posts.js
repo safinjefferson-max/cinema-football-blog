@@ -38,7 +38,7 @@ No one is ready to get hurt. No one really fights for each other. No one wants t
         title: "How all the premier league teams evolved but Tottenham didn't",
         category: "Football",
         author: "Neo",
-        created_at: "2026-09-23",
+        created_at: "2026-10-14",
         image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZJXf7W8XMjSGSRGau0igVtmYXPe755Be7s3SFn-hcsw&s=10",
         content: `Premier league teams over the last few years have evolved massively interms of player quality. The latest premier league result coventry winning against newcastle 4-1 and also tottenham fighting to get a 
         point against a really poor united side tells you all you need to know about how tough the premier league has become. Every Team has improved their recruitment massively. not just that every single team has a fighting 
